@@ -72,7 +72,7 @@ int main() {
 
     // 7. Loop de envio (Lê teclado -> Formata -> Envia)
     while (1) {
-        printf("> ");
+        printf("[Você]: ");
         fflush(stdout); // Garante que o "> " apareça antes de digitar
         
         // Lê do teclado com proteção contra estouro de buffer
