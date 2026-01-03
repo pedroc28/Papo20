@@ -55,11 +55,6 @@ void* receptor(void* arg) {
     }
 
     // --- Se o código chegou aqui, o cliente desconectou (tamanho <= 0) ---
-
-    // Opção de avisar o grupo sobre a saída (Mantido desativado conforme solicitado)
-    //sprintf(mensagem, "---Membro %d saiu do grupo---", sock);
-    //transmissao(mensagem, sock);
-
     printf("Membro %d saiu do grupo\n", sock); // Log no servidor
     
     // Limpeza final
