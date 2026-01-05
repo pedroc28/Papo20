@@ -17,11 +17,7 @@ void* receptor(void* arg) {
         mensagem[tamanho] = '\0'; // Finaliza a string para evitar lixo de memória
         
         // Exibe a mensagem recebida e desenha o prompt novamente
-        printf("\n%s\n> ", mensagem);
-        
-        // Como o printf do prompt não tem \n, o texto pode ficar preso no buffer.
-        // O fflush força o terminal a mostrar o "> " imediatamente.
-        fflush(stdout); 
+        printf("\n%s\n", mensagem); 
     }
 
     printf("\nConexão encerrada pelo servidor.\n");
