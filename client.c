@@ -16,7 +16,7 @@ void* receptor(void* arg) {
     while ((tamanho = recv(sock, mensagem, 2048, 0)) > 0) {
         mensagem[tamanho] = '\0'; // Finaliza a string para evitar lixo de memória
         
-        // Exibe a mensagem recebida e desenha o prompt novamente
+        // Exibe a mensagem recebida
         printf("\n%s\n", mensagem); 
     }
 
