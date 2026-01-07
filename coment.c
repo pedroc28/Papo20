@@ -6,15 +6,14 @@
 #include <pthread.h>
 
 //THREAD RECEPTOR (Fluxo secundário)
-//Implementação baseada em multithreading para evitar o bloqueio de I/O na interface principal.
-//Esta thread dedica-se exclusivamente à escuta do socket (recv) para viabilizar a comunicação Full-Duplex.
 void* receptor(void* arg) {
     int sock = *(int*)arg;
     char mensagem[2048];
     int tamanho;
 
     while ((tamanho = recv(sock, mensagem, 2048, 0)) > 0) {
-        mensagem[tamanho] = '\0'; //Finalização manual da string com caractere nulo para evitar a leitura excessiva de memória.
+        mensagem[tamanho] = '\0'; //Finalização manual da string com caractere nulo,
+                                  //evitando a leitura excessiva de memória.
         printf("\n%s\n", mensagem); 
     }
     
