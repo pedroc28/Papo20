@@ -5,7 +5,7 @@
 #include <unistd.h>
 #include <pthread.h>
 
-//THREAD RECEPTOR (Fluxo secundário)
+//THREAD SECUNDÁRIA (Fluxo de recebimento)
 void* receptor(void* arg) {
     int sock = *(int*)arg;
     char mensagem[2048];
