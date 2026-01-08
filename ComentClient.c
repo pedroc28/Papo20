@@ -14,7 +14,10 @@ void* receptor(void* arg) {
     while ((tamanho = recv(sock, mensagem, 2048, 0)) > 0) {
         mensagem[tamanho] = '\0'; //Finalização manual da string com caractere nulo,
                                   //evitando a leitura excessiva de memória.
-        printf("\n%s\n", mensagem); 
+        printf("\n\n%s\n\n", mensagem); 
+        printf("[Você]: ");
+        fflush(stdout); //Garantia da renderização imediata no terminal,
+                        //impedindo que mensagens sobreponham.    
     }
     
     //Finaliza o processo caso o nó central feche a conexão.
@@ -67,8 +70,7 @@ int main() {
     //Loop de Envio: mantêm o terminal responsivo para captura de mensagens do cliente.
     while (1) {
         printf("[Você]: ");
-        fflush(stdout); //Garantia da renderização imediata no terminal,
-                        //impedindo que mensagens sobreponham.
+        fflush(stdout); 
         
         //Leitura bloqueante do teclado dedicada exclusivamente ao envio de dados.
         if (fgets(mensagem, 1024, stdin) != NULL) {
@@ -81,6 +83,7 @@ int main() {
                     perror("Erro no send");
                     break;
                 }
+                printf(\n\n);
             }
         } else {
             break;
