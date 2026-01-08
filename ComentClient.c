@@ -83,7 +83,7 @@ int main() {
                     perror("Erro no send");
                     break;
                 }
-                printf(\n\n);
+                printf("\n\n");
             }
         } else {
             break;
